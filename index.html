@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>博雅互动</title>
+	<style type="text/css">
+	*{
+		padding:0;
+		margin: 0;
+	}
+	.cl{
+		clear: both;
+	}
+	body{
+		font-family: "microsoft yahei","simsun";
+		height: 1111px;
+	}
+	.header{
+		height: 58px;
+		background-color: #191D3A;
+	}
+	.inner_c{
+		width: 1000px;
+		margin:0 auto;
+	}
+	/*我想使用钩子盒子做背景 文字缩进 seo优化*/
+	.header  .logo{
+		float: left;
+		width: 195px;
+		height: 58px;
+		padding-right: 15px;
+	}
+	.header  .logo a{
+		display: block;
+		width: 195px;
+		height: 58px;
+		background: url(images/logo.png) no-repeat 0px 0px;
+		text-indent: -999em;
+	}
+	/*下面做导航栏列表*/
+	.header .navLi ul{
+		float: left;
+		list-style: none;
+		width:607px;		
+	}
+	.header .navLi ul li{
+		float: left;
+		width:100px;
+		height: 58px;
+		line-height: 58px;
+		text-align: center;
+		font-size: 14px;
+		border-left:1px solid #252947;
+	}
+	.header .navLi ul li.last{
+		border-right: 1px solid #252947;
+	}
+	.header .navLi ul .current {
+		background-color: #252947;
+	}
+	.header .navLi ul li a{
+		text-decoration: none;
+		color:#818496;
+	}
+	.header .navLi ul li.current a{
+		color: white;
+	}
+	.header .navLi ul li a{
+		display: block;
+		width:100px;
+		height: 58px;
+	}
+	.header .navLi ul li a:hover{
+		background-color:#252947 ;
+		color: white;
+	}
+	/*nav加入我们用盒子制作，也可以用相对定位调整*/
+	.header .jrwm{
+		float: left;
+		padding-top: 12px;
+		padding-left: 48px;
+	}
+	.header .jrwm a{
+		display: block;
+		width:100px;
+		height: 34px;
+		text-decoration: none;
+		line-height: 34px;
+		text-align: center;
+		font-size: 14px;
+		color: white;
+		background-color: #38B774;
+		border-radius:5px;
+	}
+	.header .jrwm a:hover{
+		background-color: skyblue;
+	}
+	/*巨幕广告*/
+	.ad{
+		height:465px;
+		background: url(images/banner.jpg) no-repeat center center;
+		position:relative;
+		 /*相对定位*/
+	}
+	/*广告中的小点 用绝对定位的方法做*/
+	.ad .xiaoyuandian {
+		width: 120px;
+		height: 12px;
+		position:absolute;
+		top:431px;
+		left:50%;
+		/*此时 是这个盒子的左边框在正中 所以要左margin负一半 为什么是同一方向 因为只有总是50%的左margin 推不了只有减少*/
+		margin-left:-60px;
+	}
+	.ad .xiaoyuandian ol{
+		list-style: none;
+	}
+	.ad .xiaoyuandian ol li{
+		float:left;
+		width: 12px;
+		height: 12px;
+		margin-right: 15px;
+		/*background-color:red;*/ 
+		background: url(images/dian1.png) no-repeat;
+		cursor: pointer;
+		/*css3增加小手做法*/
+	}
+	.ad .xiaoyuandian ol li.last{
+		margin-right: 0px;
+	}
+	.ad .xiaoyuandian ol li.current{
+		background: url(images/dian2.png) no-repeat;
+	}
+	/*主要内容区域*/
+	.content{
+		/*注意！！！！！使用padding要同时减去高度*/
+		height: 650px;
+		background: url(images/indexmainbg.jpg) no-repeat center bottom;
+		padding-top: 50px;
+		position: relative;
+	}
+	.content .vidous{
+		height: 229px;
+		border-bottom:1px solid #DBE1E7;
+	}
+	.content .vidous ul{
+		float:left;
+		width:218px;
+		/*height: 130px;*/
+		list-style: none;
+		margin-right: 43px;
+	}
+	.content .vidous ul li img{
+		width:218px;
+		height: 130px;
+
+	}
+	.content .vidous ul.last{
+		width: 217px;
+		margin-right: 0px;
+	}
+
+	.content .vidous ul li.last{
+		width: 217px;
+	}
+	/*处理视频区下方文字*/
+	.content .vidous ul li h4{
+		text-align: center;
+		font-size: 14px;
+		line-height: 28px;
+		margin-top: 6px;
+		font-weight: bold;
+	}
+	.content .vidous ul li.djbf{
+		text-align: center;
+		}
+	.content .vidous ul li.djbf a{
+		text-decoration: none;
+		font-size: 12px;
+		line-height: 12px;
+		color: green;
+		/*行内元素也有padding 使用它撑出想要的地方*/
+		padding-right: 10px;
+		background: url(images/sanjiaoxing.png) no-repeat right;
+	}
+		/*视频区下方的圆点*/
+	.content .yuan{
+		width: 90px;
+		height: 11px;
+		position: absolute;
+		left:50%;
+		margin-left: -50px;
+		top:274px;
+		background-color: white;
+
+	}
+	.content .yuan ul{
+		list-style: none;
+	}
+	.content .yuan ul li{
+		float: left;
+		width: 12px;
+		height: 12px;
+		margin-right: 14px;
+		background: url(images/dian1.png) no-repeat;
+		cursor: pointer;
+	}
+	.content .yuan ul li.last{
+		margin-right: 0px;
+	}
+	/*最下方新闻区*/
+	.content .news{
+		width: 460px;
+		background:url(images/bynewsbg.jpg) no-repeat;
+		margin-top: 53px;
+		padding-top: 110px;
+		padding-left: 20px;
+		padding-right: 20px;
+		position: relative;
+		float: left;
+	}
+	.content .news ul {
+		list-style: none;
+	}
+	.content .news ul li{
+		font-size: 14px;
+		line-height: 50px;
+		border-bottom: 1px solid #DBE1E7;
+	}
+	.content .news ul li span{
+		font-size: 12px;
+		color: #AFBECF;
+		margin-right: 22px;
+	}
+	.content .news ul li a{
+		text-decoration: none;
+		font-size: 14px;
+		color:  #444866;
+	}
+	/*新闻背景上的more符号用绝对路径做出来*/
+	.content .news .more{
+		width: 66px;
+		height: 28px;
+		background: url(images/more.png) no-repeat;
+		position: absolute;
+		top:40px;
+		left:218px;
+	}
+	/*新闻旁边的工作栏目*/
+	.content .jobs{
+		float: left;
+		width: 500px;
+		height: 310px;
+		margin-top: 53px;
+		background-image: url(images/byhrbg3.jpg);	
+	}
+	.content .jobs a.zczp{
+		display: block;
+		width: 309px;
+		height: 88px;
+		background: url(images/jobs.png) no-repeat;
+		text-indent: -999em;
+		color: white;
+	}
+	.content .jobs ul{
+		list-style: none;
+	}
+	
+	.content .jobs a.first{
+		line-height: 24px;
+		font-size: 12px;
+		margin-top: 19px;
+		padding-left: 20px;
+		color: white;
+		text-decoration: none;
+	}
+	.content .jobs ul a{
+		display: block;
+		width: 305px;
+		text-decoration: none;
+		padding-left: 20px;
+		color: white;
+		line-height: 37px;
+		font-size: 14px;
+		border-bottom: 1px solid #6FDEA3;
+	}
+
+	/*页脚             22222*/
+	.footer{
+		height: 91px;
+		background-color: #191D3A;
+	}
+	.footer .letter_left{
+		float: left;
+		/*width: 118px;*/
+	}
+	.footer .letter_left a{
+		font-size: 14px;
+		line-height: 91px;
+		color: #6C6E7E;
+		text-decoration: none;
+	}
+	.footer .letter_r{
+		float: left;
+		margin-left: 170px;
+		position: relative;
+	}
+	.footer .letter_r a{
+		float: left;
+		text-decoration: none;
+		font-size: 14px;
+		color: #6C6E7E;
+		line-height: 91px;
+	}
+	.footer .letter_r a.police img{
+		width: 35px;
+		height: 55px;
+		position: absolute;
+		top:20px;
+	}
+	/*使用相对位置进行微调*/
+	.back_top{
+		position: fixed;
+		right: 0px;
+		bottom: 150px;
+	}
+	/*固定位置设置返回顶部标志*/
+	.back_top a{
+		display: block;
+		width: 50px;
+		height: 50px;
+		background-color: red;
+		text-indent: -999em;
+		background: url(images/gotop.png) no-repeat;
+	}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		alert("javascript");
+	</script>
+	<!-- 页首 -->
+	<div class="header">
+		<div class="inner_c">
+			<div class="logo">
+				<a href="#">互动</a>
+			</div>
+			<div class="navLi">
+
+				<ul>
+					<li class="current">
+						<a href="">首页</a>
+					</li>
+					<li>
+						<a href="">博雅游戏</a>
+					</li>
+					<li>
+						<a href="">博雅新闻</a>
+					</li>
+					<li>
+						<a href="">关于我们</a>
+					</li>
+					<li>
+						<a href="">客服中心</a>
+					</li>
+					<li class="last">
+						<a href="">投资者关系</a>
+					</li>
+				</ul>
+			</div>
+			<div class="jrwm">
+				<a href="">加入我们</a>
+			</div>
+		</div>
+	</div>
+	<div class="cl"></div>
+	<!-- 巨幕广告 -->
+	<div class="ad">
+		<div class="xiaoyuandian">
+			<ol>
+				<li class="current"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li class="last"></li>
+			</ol>
+		</div>
+	</div>
+	<!-- 主要内容区域 -->
+	<div class="content">
+		<div class="inner_c">
+			<div class="vidous">
+				<ul>
+					<li>
+						<img src="images/bpt.jpg" alt="" />
+					</li>
+					<li>
+						<h4>BPT宣传片</h4>
+					</li>
+					<li class="djbf">
+						<a href="">点击播放</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<img src="images/video.jpg" alt="" />
+					</li>
+					<li>
+						<h4>博雅互动视频</h4>
+					</li>
+					<li class="djbf">
+						<a href="">点击播放</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<img src="images/gamepic3.jpg" alt="" />
+					</li>
+					<li>
+						<h4>B斗地主</h4>
+					</li>
+					<li class="djbf">
+						<a href="">点击播放</a>
+					</li>
+				</ul>
+				<ul class="last">
+					<li class="last">
+						<img src="images/gamepic1.jpg" alt="" />
+					</li>
+					<li>
+						<h4>德州扑克</h4>
+					</li>
+					<li class="djbf">
+						<a href="">点击播放</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="cl"></div>
+			<!-- 圆点 -->
+			<div class="yuan">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li class="last"></li>
+				</ul>
+			</div>
+			<div class="news">
+				<ul>
+					<li>
+						<p>
+							<span>9 / 28</span>
+							<a href="">2015bpt博雅国际扑克大赛重磅来袭</a>
+						</p>
+					</li>
+					<li>
+						<p>
+							<span>9 / 28</span>
+							<a href="">2015bpt博雅国际扑克大赛重磅来袭</a>
+						</p>
+					</li>
+					<li>
+						<p>
+							<span>9 / 28</span>
+							<a href="">2015bpt博雅国际扑克大赛重磅来袭</a>
+						</p>
+					</li>
+					<li>
+						<p>
+							<span>9 / 28</span>
+							<a href="">2015bpt博雅国际扑克大赛重磅来袭</a>
+						</p>
+					</li>
+				</ul>
+				<div class="more"></div>
+			</div>
+			<div class="jobs">
+				<a href="" class="zczp">专场招聘</a>
+				<a href="" class="first">专场招聘岗位 :</a>
+				<ul>
+					<li>
+						<a href="">ios工程师</a>
+					</li>
+					<li>
+						<a href="">ios工程师</a>
+					</li>
+					<li>
+						<a href="">ios工程师</a>
+					</li>
+					<li>
+						<a href="">ios工程师</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- 页脚 -->
+	<div class="footer">
+		<div class="inner_c">
+			<div class="letter_left">
+				<a href="">网站地图 |</a>
+				<a href="">免责声明</a>
+			</div>
+			<div class="letter_r">
+				<a href="">Copyright ©博雅互动(Boyaa Interactive) 粤ICP备05062536号 增值电信业务经营许可证：粤B2-20110513</a>
+				<a href="" class="police">
+					<img src="images/govIcon.gif" alt="" />
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="back_top">
+		<a href="">aaaaaaaaaaaa</a>
+	</div>
+</body>
+</html>
+2016年7月4日13:31:32
